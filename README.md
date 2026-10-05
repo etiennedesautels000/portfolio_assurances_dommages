@@ -1,4 +1,4 @@
-# Portfolio Projet : Assurances dommages
+# (Portfolio) Projet académique : Assurances dommages
 
 Une webapp et un microservice web (API) pour l'évaluation de réclamations d'assurances dommages  
 
