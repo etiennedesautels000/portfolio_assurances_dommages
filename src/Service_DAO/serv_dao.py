@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 JSONDB_URI = 'db_incidents.json'
-MONGODB_URI = 'mongodb+srv://flouflou:motdepasse@cluster0.u62olan.mongodb.net/?appName=Cluster0' # database: 'info_sinistre_auto'
+MONGODB_URI = '******' # database: 'info_sinistre_auto'
 DB_COLLECTION = 'incidents'
 
 
