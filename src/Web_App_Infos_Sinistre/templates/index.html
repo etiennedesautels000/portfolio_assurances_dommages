@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="home-container">
+    <div class="home-header">
+        <h1>🚨 Tableau de bord sinistres</h1>
+        <p>Bienvenue! Gérez et recherchez facilement les données concernant les sinistres automobiles.</p>
+    </div>
+
+    <div class="action-buttons">
+        <a href="/login" class="action-btn btn-login-home">
+            <div class="action-btn-icon">🔐</div>
+            <strong>Connexion</strong>
+            <div class="action-btn-text">Obtenir un token</div>
+        </a>
+        <a href="/infos_sinistre" class="action-btn btn-search-home">
+            <div class="action-btn-icon">🔍</div>
+            <strong>Recherche</strong>
+            <div class="action-btn-text">Chercher un incident</div>
+        </a>
+    </div>
+
+    <div class="features">
+        <h3>✨ Fonctionnalités</h3>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">Recherchez un incident existant par ID de réclamation ou par
+                date/heure/localisation
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">Créez un nouvel incident si celui-ci n'existe pas dans la base de données</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">Ajoutez des IDs de réclamation à un incident existant</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">Consultez les données météorologiques associées à chaque incident</div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">Authentification sécurisée avec token</div>
+        </div>
+    </div>
+    <br>
+    <div class="developers-section">
+        <h3>👨‍💻 Développeurs</h3>
+        <div class="developers-links">
+            <a href="{{ api_docs_url }}" class="dev-link" target="_blank">
+                API Docs - Info-Sinistre-Auto
+            </a>
+            <br>
+            <a href="{{ api_auth_docs_url }}" class="dev-link" target="_blank">
+                API Docs - Authentification (Info-Sinistre-Auto)
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

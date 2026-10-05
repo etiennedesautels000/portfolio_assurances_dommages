@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<form action="" method="post" novalidate>
+
+    {{ form.hidden_tag() }}
+    <br>
+    <h3>L'incident n'a pas été trouvé dans la base de données.</h3>
+    <h3>Souhaitez-vous collecter les informations relatives à cet incident? </h3>
+    <br>
+    <p>
+        {{ form.options }}<br>
+    </p>
+
+
+    <p>
+        {# SUBMIT BUTTON #}
+        {{ form.submit() }}
+    </p>
+
+
+</form>
+<br>
+
+
+{% endblock %}

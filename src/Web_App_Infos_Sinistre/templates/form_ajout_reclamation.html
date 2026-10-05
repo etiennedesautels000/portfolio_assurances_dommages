@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<form action="" method="post" novalidate>
+
+    {{ form.hidden_tag() }}
+    <br>
+    <h3>L'incident correspondant a été trouvé mais il ne contient pas
+        l'indentifiant de réclamation renseigné.</h3>
+    <h3>Souhaitez-vous ajouter cet identifiant dans la fiche incident? </h3>
+
+    <h4>Numéro d'incident: {{ id_incident }}</h4>
+    <h4>Identifiant de réclamation: {{ id_reclamation }}</h4>
+    <br>
+    <p>
+        {{ form.options }}<br>
+    </p>
+
+    <p>
+        {# SUBMIT BUTTON #}
+        {{ form.submit() }}
+    </p>
+
+
+</form>
+<br>
+
+
+{% endblock %}

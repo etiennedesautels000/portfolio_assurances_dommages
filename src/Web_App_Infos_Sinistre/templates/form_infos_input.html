@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Saisie des informations du sinistre</h1>
+
+{# HTML form for submitting project data #}
+{# action="": Submit to the same route #}
+{# method="post": Send data securely in POST request (not visible in URL) #}
+{# novalidate: Don't use HTML5 validation; let Flask-WTF handle it (more control) #}
+<form action="" method="post" novalidate>
+
+    {# CSRF Protection token: Prevents Cross-Site Request Forgery attacks #}
+    {{ form.hidden_tag() }}
+
+    <p>
+        {# Render the label: "Identifiant de réclamation" #}
+        {{ form.id_reclamation.label }}<br>
+        {# Render the input field with width of 15 characters #}
+        {{ form.id_reclamation(size=15, required=False) }}
+    </p>
+
+    <p>
+        {# Render the label: "Date" #}
+        {{ form.date.label }}<br>
+        {# Render the input field with width of 10 characters #}
+        {{ form.date(size=10, required=False) }}
+    </p>
+
+    <p>
+        {# Render the label: "Heure" #}
+        {{ form.heure.label }}<br>
+        {# Render the input field with width of 10 characters #}
+        {{ form.heure(size=10, required=False) }}
+    </p>
+
+    <p>
+        {# Render the label: "Latitude" #}
+        {{ form.lat.label }}<br>
+        {# Render the input field with width of 15 characters #}
+        {{ form.lat(size=15, required=False) }}
+    </p>
+
+    <p>
+        {# Render the label: "Longitude" #}
+        {{ form.long.label }}<br>
+        {# Render the input field with width of 15 characters #}
+        {{ form.long(size=15, required=False) }}
+    </p>
+
+    {# SUBMIT BUTTON #}
+    <p>
+        {# Render the submit button: "Sauvegarder" (Save) #}
+        {{ form.submit() }}
+    </p>
+</form>
+
+<!-- Action Buttons -->
+<div class="action-buttons">
+    <a href="/index" class="action-btn">
+        ← Retour à l'accueil
+    </a>
+</div>
+{% endblock %}

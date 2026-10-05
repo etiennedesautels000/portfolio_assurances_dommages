@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-title">Résultats de la recherche - Analyse d'incident</div>
+
+<div class="content-wrapper">
+    <!-- LEFT SIDE: DASHBOARD -->
+    <div class="dashboard">
+        <h2>📊 Tableau de Bord</h2>
+
+        <!-- Section: Informations du Dossier -->
+        <div class="dashboard-section">
+            <h3>📋 Informations du Dossier</h3>
+            <div class="data-row">
+                <span class="data-label">ID Incident:</span>
+                <span class="data-value">{{ data.id_incident }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Date:</span>
+                <span class="data-value">{{ data.info_dossier.date }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Heure:</span>
+                <span class="data-value">{{ data.info_dossier.heure }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Latitude:</span>
+                <span class="data-value">{{ data.info_dossier.latitude }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Longitude:</span>
+                <span class="data-value">{{ data.info_dossier.longitude }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Réclamations:</span>
+            </div>
+            <div style="margin-left: 10px;">
+                {% for id_rec in data.info_dossier.id_reclamation %}
+                    <span class="array-item">{{ id_rec }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Section: Conditions Météorologiques Actuelles -->
+        <div class="dashboard-section">
+            <h3>🌤️ Conditions Actuelles (Horaire)</h3>
+            <div class="data-row">
+                <span class="data-label">Température:</span>
+                <span class="data-value">{{ data.info_meteo.horaire.temperature_C }}°C</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Code WMO:</span>
+                <span class="data-value">{{ data.info_meteo.horaire.code_WMO }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Couverture Nuageuse:</span>
+                <span class="data-value">{{ data.info_meteo.horaire.couverture_nuageuse_pct }}%</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Vitesse du Vent:</span>
+                <span class="data-value">{{ data.info_meteo.horaire.vitesse_vent_kmh }} km/h</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Direction du Vent:</span>
+                <span class="data-value">{{ data.info_meteo.horaire.direction_vent_deg }}°</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Pluie:</span>
+                <span class="data-value">{{ data.info_meteo.horaire.pluie_mm }} mm</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Neige:</span>
+                <span class="data-value">{{ data.info_meteo.horaire.neige_cm }} cm</span>
+            </div>
+        </div>
+
+        <!-- Section: Données Météorologiques Quotidiennes -->
+        <div class="dashboard-section">
+            <h3>📅 Données Quotidiennes (24h)</h3>
+            <div class="data-row">
+                <span class="data-label">Temp. Maximale:</span>
+                <span class="data-value">{{ data.info_meteo.journalier.temperature_max_C }}°C</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Temp. Minimale:</span>
+                <span class="data-value">{{ data.info_meteo.journalier.temperature_min_C }}°C</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Pluie (24h):</span>
+                <span class="data-value">{{ data.info_meteo.journalier.pluie_24h_mm }} mm</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Neige (24h):</span>
+                <span class="data-value">{{ data.info_meteo.journalier.neige_24h_cm }} cm</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Lever du Soleil:</span>
+                <span class="data-value">{{ data.info_meteo.journalier.lever_soleil }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Coucher du Soleil:</span>
+                <span class="data-value">{{ data.info_meteo.journalier.coucher_soleil }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Zone Dégel:</span>
+                <span class="data-value">{{ data.info_meteo.journalier.zone_degel }}</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Période Dégel:</span>
+                <span class="data-value">{{ data.info_meteo.journalier.periode_degel }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE: MAP -->
+    <div class="map-container">
+        <h2>🗺️ Localisation</h2>
+        <iframe
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                src="https://maps.google.com/maps?q={{ data.info_dossier.latitude }},{{ data.info_dossier.longitude }}&z=15&output=embed">
+        </iframe>
+    </div>
+</div>
+
+<!-- Action Buttons -->
+<div class="action-buttons">
+    <a href="/index" class="action-btn">
+        ← Retour à l'accueil
+    </a>
+</div>
+
+{% endblock %}
